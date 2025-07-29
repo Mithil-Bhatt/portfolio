@@ -226,30 +226,30 @@
 }
 
 .arc-reactor {
-  width: 120px;
-  height: 120px;
+  width: 180px; /* Increased size */
+  height: 180px; /* Increased size */
   position: relative;
   animation: pulseGlow 1.5s infinite;
 }
 
 .core {
-  width: 40px;
-  height: 40px;
-  background: cyan;
+  width: 60px; /* Increased size */
+  height: 60px; /* Increased size */
+  background: #00ffff; /* Brighter cyan color */
   border-radius: 50%;
   position: absolute;
-  top: 40px;
-  left: 40px;
-  box-shadow: 0 0 20px cyan;
+  top: 60px; /* Adjusted position */
+  left: 60px; /* Adjusted position */
+  box-shadow: 0 0 30px #00ffff; /* Brighter glow */
 }
 
 .ring {
   position: absolute;
   width: 100%;
   height: 100%;
-  border: 4px solid cyan;
+  border: 6px solid #00ffff; /* Brighter cyan color */
   border-radius: 50%;
-  box-shadow: 0 0 30px cyan;
+  box-shadow: 0 0 40px #00ffff; /* Brighter glow */
   animation: spin 3s linear infinite;
 }
 
@@ -270,17 +270,67 @@
 
 
 
+.bats-container {
+  position: absolute;
+  bottom: 100px;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.bat {
+  position: absolute;
+  width: 60px;
+  height: 20px;
+  opacity: 0;
+  transform: scale(0.5) rotate(0deg);
+  animation: flyBat 2.5s ease-in-out forwards;
+}
+
+@keyframes flyBat {
+  0% {
+    transform: translateY(100px) scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-600px) scale(1.5) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.gif-bg {
+  position: fixed;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  width: 100vw; /* Full width */
+  height: 100vh; /* Full height */
+  background-image: url('https://i.gifer.com/LlwB.gif'); /* Your GIF URL */
+  background-position: center; /* Center the background */
+  background-repeat: no-repeat; /* Prevent repeating */
+  background-size: cover; /* Cover the entire area */
+  transform: translate(-50%, -50%); /* Adjust position to center */
+  z-index: -1; /* Behind other content */
+  opacity: 0.3; /* Adjust opacity as needed */
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+
   </style>
 </head>
 <body>
 
 <div id="intro-animation">
 
-  <div class="arc-reactor">
-    <div class="core"></div>
-    <div class="ring"></div>
+    <div class="gif-bg"></div>
+   
   </div>
+  
 </div>
+
 
 
 
@@ -310,110 +360,161 @@
     </nav>
   </header>
 
-  <section id="about" class="section">
-    <h2>About Me</h2>
-    <div class="about-container">
-      <img src="profile.png" alt="Your Photo" />
-      <div>
-        <p>I’m an aspiring developer passionate about creating impactful web and software solutions. With hands-on experience in front-end, back-end, and full-stack development, I aim to build efficient and user-centric applications.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="education" class="section">
-    <h2>Education</h2>
-    <ul style="list-style: none; padding-left: 0;">
-      <li><strong>MCA - Ongoing</strong><br/>GLS University, Ahmedabad<br/><small>2023 - 2025</small></li><br/>
-      <li><strong>BCA - First Class with Distinction (7.98 CGPA)</strong><br/>LJ University<br/><small>2020 - 2023</small></li><br/>
-      <li><strong>HSC – Commerce</strong><br/>Shree Narayana Guru Vidyalaya<br/><small>2020</small></li><br/>
-     
-    </ul>
-  </section>
-
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="project-grid">
-	
-	
-	
-	  <div class="project-card">
-        <h3>Voice Assistant (Jarvis)</h3>
-        <p>Python assistant with Jarvis-style voice interaction and computer visions interaction  with hand gestures.</p>
-       
-      </div>
+<section id="about" class="section" style="position: relative; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+                background: url('https://i.gifer.com/GeLK.gif') no-repeat center center; 
+                background-size: cover; opacity: 0.5; z-index: 1;"></div>
     
-      <div class="project-card">
-        <h3>Lab Management System</h3>
-        <p>Laravel based System for lab maintenance and complaint management.</p>
-       
-      </div>
-      <div class="project-card">
-        <h3>Online video game store</h3>
-        <p>Django based system to view and download PC Games with payment integration</p>
-       
-      </div>
-	  
-	    <div class="project-card">
-        <h3>Hostel Finder Website</h3>
-        <p>React-Django based system for students to search hostels near colleges.</p>
-        
-      </div>
-	  
-	  <div class="project-card">
-        <h3>C language- Students management System</h3>
-        <p> A system for efficient management of student data including personal information and
- academic records.</p>
-        
-      </div>
-	  
-	   <div class="project-card">
-        <h3>Live Scoring app</h3>
-        <p>Frontend of the app done in figma for viewing score of any sports</p>
-        
-      </div>
-	  
+    <h2 style="position: relative; z-index: 2;">About Me</h2>
+    <div class="about-container" style="position: relative; z-index: 2;">
+        <img src="profile.png" alt="Your Photo" />
+        <div>
+            <p>I’m an aspiring developer passionate about creating impactful web and software solutions. With hands-on experience in front-end, back-end, and full-stack development, I aim to build efficient and user-centric applications.</p>
+        </div>
     </div>
-  </section>
-  
-  
-  <!-- Certificates Section -->
-<section id="certificates" class="section">
-  <h2>Certificates</h2>
-  <div id="certificate-carousel" style="position: relative; height: 250px; overflow: hidden;">
-    <img id="certificate-image" src="certificate1.jpg" 
-         style="width: auto; height: 100%; margin: 0 auto; display: block; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: opacity 1s ease-in-out;" />
-  </div>
 </section>
 
-  
-  
-  
-
-  <section id="skills" class="section">
-    <h2>Skills</h2>
-    <ul class="skills-list">
-      <li>Laravel</li>
-      <li>Python</li>
-      <li>Django</li>
-	  <li>React</li>
-	  <li>Java</li>
-      <li>JavaScript</li>
-      <li>Figma</li>
-      <li>Flutter,Firebase</li>
-      <li>Express,MongoDB,SQL</li>
-      <li>Git & GitHub</li>
+  <section id="education" class="section" style="position: relative; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+                background: url('https://i.gifer.com/1hcw.gif') no-repeat center center; 
+                background-size: cover; opacity: 0.5; z-index: 1;"></div>
+    
+    <h2 style="position: relative; z-index: 2;">Education</h2>
+    <ul style="list-style: none; padding-left: 0; position: relative; z-index: 2;">
+        <li><strong>MCA - Ongoing</strong><br/>GLS University, Ahmedabad<br/><small>2023 - 2025</small></li><br/>
+        <li><strong>BCA - First Class with Distinction (7.98 CGPA)</strong><br/>LJ University<br/><small>2020 - 2023</small></li><br/>
+        <li><strong>HSC – Commerce</strong><br/>Shree Narayana Guru Vidyalaya<br/><small>2020</small></li><br/>
     </ul>
-  </section>
+</section>
 
-  <section id="contact" class="section">
-    <h2>Contact Me</h2>
-    <form id="contact-form">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
+<section id="projects" class="section" style="position: relative; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+                background: url('https://i.gifer.com/I17F.gif') no-repeat center center; 
+                background-size: cover; opacity: 0.5; z-index: 1;"></div>
+    
+    <h2 style="position: relative; z-index: 2;">Projects</h2>
+    <div class="project-grid" style="position: relative; z-index: 2;">
+        <div class="project-card">
+            <h3>Voice Assistant (Jarvis)</h3>
+            <p>Python assistant with Jarvis-style voice interaction and computer vision interaction with hand gestures.</p>
+        </div>
+        <div class="project-card">
+            <h3>Lab Management System</h3>
+            <p>Laravel based System for lab maintenance and complaint management.</p>
+        </div>
+        <div class="project-card">
+            <h3>Online video game store</h3>
+            <p>Django based system to view and download PC Games with payment integration.</p>
+        </div>
+        <div class="project-card">
+            <h3>Hostel Finder Website</h3>
+            <p>React-Django based system for students to search hostels near colleges.</p>
+        </div>
+        <div class="project-card">
+            <h3>C language - Students management System</h3>
+            <p>A system for efficient management of student data including personal information and academic records.</p>
+        </div>
+        <div class="project-card">
+            <h3>Live Scoring app</h3>
+            <p>Frontend of the app done in Figma for viewing scores of any sports.</p>
+        </div>
+    </div>
+</section>
+
+<section id="certificates" class="section" style="position: relative; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+                background: url('https://i.gifer.com/Qi74.gif') no-repeat center center; 
+                background-size: cover; opacity: 0.5; z-index: 1;"></div>
+    
+    <h2 style="position: relative; z-index: 2;">Certificates</h2>
+    <div id="certificate-carousel" style="position: relative; height: 250px; overflow: hidden; z-index: 2;">
+        <img id="certificate-image" src="certificate1.jpg" 
+             style="width: auto; height: 100%; margin: 0 auto; display: block; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: opacity 1s ease-in-out;" />
+    </div>
+</section>
+
+<section id="skills" class="section" style="position: relative; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+                background: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDB0Y2MxOHd4NW1rcGNraTY4eW1iNTVkc202cGs2OGE5MHZmNm9vbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uHo3T7P0YX7Ec/giphy.gif') no-repeat center center; 
+                background-size: cover; opacity: 0.5; z-index: 1;"></div>
+    
+    <h2 style="position: relative; z-index: 2;">Skills</h2>
+    
+    <table style="width: 100%; border-collapse: collapse; position: relative; z-index: 2;">
+        <thead>
+            <tr>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding: 10px; text-align: center;">
+                    Laravel<br>
+                    <img src="https://picperf.io/https://laravelnews.s3.amazonaws.com/images/laravel-featured.png" alt="Laravel" style="max-width: 20%; height: auto; margin-top: 5px;">
+                </td>
+                <td style="padding: 10px; text-align: center;">
+                    Python<br>
+                    <img src="https://umgeocon.org/wp-content/uploads/2018/04/Python-logo.svg_-1600x1600.png" alt="Python" style="max-width: 20%; height: auto; margin-top: 5px;">
+                </td>
+                <td style="padding: 10px; text-align: center;">
+                    Django<br>
+                    <img src="https://datascientest.com/wp-content/uploads/2023/05/django-datascientest.png" alt="Django" style="max-width: 20%; height: auto; margin-top: 5px;">
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; text-align: center;">
+                    React<br>
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.K-4RqDC6zFrpAG31ayDDOgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="React" style="max-width: 20%; height: auto; margin-top: 5px;">
+                </td>
+                <td style="padding: 10px; text-align: center;">
+                    Java<br>
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.iIXOmGDzrtTJmdwbn7cGMwHaEJ?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Java" style="max-width: 20%; height: auto; margin-top: 5px;">
+                </td>
+                <td style="padding: 10px; text-align: center;">
+                    JavaScript<br>
+                    <img src="https://logos-world.net/wp-content/uploads/2023/02/JavaScript-Symbol.png" alt="JavaScript" style="max-width: 20%; height: auto; margin-top: 5px;">
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; text-align: center;">
+                    Express<br>
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.zjD1ZJWXWfgymLgx3dqcLAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Figma" style="max-width: 20%; height: auto; margin-top: 5px;">
+                </td>
+                <td style="padding: 10px; text-align: center;">
+                    Flutter, Firebase<br>
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.hGnjnxryKnKZW9AJ_3ErvQHaFf?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Flutter" style="max-width: 20%; height: auto; margin-top: 5px;">
+                </td>
+                <td style="padding: 10px; text-align: center;">
+                    MongoDB, SQL<br>
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.ipNTjGs4MAk2lv5Pda0GDwHaHa?w=600&h=600&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Express" style="max-width: 20%; height: auto; margin-top: 5px;">
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; text-align: center;" >
+                    Git & GitHub<br>
+                    <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="Git & GitHub" style="max-width: 20%; height: auto; margin-top: 5px;">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+<section id="contact" class="section" style="position: relative; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+                background: url('https://i.gifer.com/WOKs.gif') no-repeat center center; 
+                background-size: cover; opacity: 0.5; z-index: 1;"></div>
+    
+    <h2 style="position: relative; z-index: 2;">Contact Me</h2>
+    <form id="contact-form" style="position: relative; z-index: 2;">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
     </form>
-  </section>
+</section>
+
 
   <footer>
     <p>&copy; 2025 Mithil Bhatt. All rights reserved.</p>
@@ -555,7 +656,7 @@ function animate() {
 }
 animate();
 
-// Click pulse effect
+
 window.addEventListener("click", (e) => {
   clicks.push({ x: e.clientX, y: e.clientY, radius: 0, alpha: 0.5 });
 });
@@ -565,14 +666,15 @@ window.addEventListener("click", (e) => {
 
 
 window.onload = () => {
-  // Delay to hide intro and show content
+
   setTimeout(() => {
     document.getElementById("intro-animation").style.display = "none";
     document.body.style.overflow = "auto"; // enable scroll after intro
-  }, 3000); // match total animation time
+  }, 3500); // match total animation time
 };
 
 
+ 
 	
   </script>
 
